@@ -5,7 +5,6 @@ import swaggerUi from "swagger-ui-express";
 import testRoutes from "./routes/test"
 import artistRoutes from "./routes/artist"
 
-// import Router from "./routes";
 
 const PORT = process.env.PORT || 8000;
 
