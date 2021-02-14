@@ -25,11 +25,36 @@ router.get("/artist/:id", async (_req, res) => {
         return res.send(response)
 
     } catch (error) {
-        console.log("Failed to fetch search results")
+        console.log("Failed to fetch artist")
         console.log(error)
     }
 });
 
+router.get("/artist/:id/top", async (_req, res) => {
+    try {
+
+        const { id } = _req.params
+        const response = await controller.getArtistTopTracks(id as string);
+        return res.send(response)
+
+    } catch (error) {
+        console.log("Failed to fetch top tracks")
+        console.log(error)
+    }
+});
+
+router.get("/artist/:id/albums", async (_req, res) => {
+    try {
+
+        const { id } = _req.params
+        const response = await controller.getArtistAlbums(id as string);
+        return res.send(response)
+
+    } catch (error) {
+        console.log("Failed to fetch albums")
+        console.log(error)
+    }
+});
 
 
 
