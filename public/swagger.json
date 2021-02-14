@@ -6,7 +6,7 @@
 		"requestBodies": {},
 		"responses": {},
 		"schemas": {
-			"ArtistResponse": {
+			"TestResponse": {
 				"properties": {
 					"message": {
 						"type": "string"
@@ -40,7 +40,26 @@
 						"content": {
 							"application/json": {
 								"schema": {
-									"$ref": "#/components/schemas/ArtistResponse"
+									"$ref": "#/components/schemas/TestResponse"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": []
+			}
+		},
+		"/test/search": {
+			"get": {
+				"operationId": "Search",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/TestResponse"
 								}
 							}
 						}
