@@ -1,13 +1,14 @@
 import express from "express";
 import ArtistController from "../controllers/artistController";
+import { getArtistAlbumsSchema, getArtistSchema, getArtistTopTracksSchema, searchArtistsSchema } from "../models/validation/artist";
 
 const router = express.Router();
 const controller = new ArtistController();
 
-router.get("/search/artist", async (_req, res) => {
+router.get("/search/artist", searchArtistsSchema, async (_req, res) => {
     try {
-        // const name = (_req.query && _req.query.name as string) || ""
-        const { name } = _req.query
+        const { name } = _req.query;
+
         const response = await controller.searchArtists(name as string);
         return res.send(response)
 
@@ -17,23 +18,25 @@ router.get("/search/artist", async (_req, res) => {
     }
 });
 
-router.get("/artist/:id", async (_req, res) => {
+router.get("/artist/:id", getArtistSchema, async (_req, res) => {
     try {
 
-        const { id } = _req.params
+        const { id } = _req.params;
+
         const response = await controller.getArtist(id as string);
         return res.send(response)
 
     } catch (error) {
-        console.log("Failed to fetch artist")
-        console.log(error)
+        // console.log("Failed to fetch artist")
+        // console.log(error)
     }
 });
 
-router.get("/artist/:id/top", async (_req, res) => {
+router.get("/artist/:id/top", getArtistTopTracksSchema, async (_req, res) => {
     try {
 
-        const { id } = _req.params
+        const { id } = _req.params;
+
         const response = await controller.getArtistTopTracks(id as string);
         return res.send(response)
 
@@ -43,10 +46,11 @@ router.get("/artist/:id/top", async (_req, res) => {
     }
 });
 
-router.get("/artist/:id/albums", async (_req, res) => {
+router.get("/artist/:id/albums", getArtistAlbumsSchema, async (_req, res) => {
     try {
 
-        const { id } = _req.params
+        const { id } = _req.params;
+
         const response = await controller.getArtistAlbums(id as string);
         return res.send(response)
 

@@ -1,5 +1,5 @@
 import { IArtist } from "../models/artist.interface";
-import { BASE_URL, HEADERS } from "../utils/domain"
+import { BASE_URL, HEADERS } from "../utils/external_serives"
 import axios, { AxiosResponse } from "axios";
 import { Get, Route } from 'tsoa';
 import { IAlbum } from "../models/album.interface";
@@ -10,7 +10,6 @@ export default class ArtistController {
 
     // @Get("/search/artist")
     public async searchArtists(name: string): Promise<IArtist[]> {
-
         const url = `${BASE_URL}/search/artist?q=${name}`
         const res = await axios.get(url);
         return res.data;
