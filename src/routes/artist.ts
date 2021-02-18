@@ -10,11 +10,10 @@ router.get("/search/artist", searchArtistsSchema, async (_req, res) => {
         const { name } = _req.query;
 
         const response = await controller.searchArtists(name as string);
-        return res.send(response)
+        return res.status(200).send(response)
 
     } catch (error) {
-        console.log("Failed to fetch search results")
-        console.log(error)
+        return res.status(500).send({ error: error.message })
     }
 });
 
@@ -27,8 +26,7 @@ router.get("/artist/:id", getArtistSchema, async (_req, res) => {
         return res.send(response)
 
     } catch (error) {
-        // console.log("Failed to fetch artist")
-        // console.log(error)
+        return res.status(500).send({ error: error.message })
     }
 });
 
@@ -41,8 +39,7 @@ router.get("/artist/:id/top", getArtistTopTracksSchema, async (_req, res) => {
         return res.send(response)
 
     } catch (error) {
-        console.log("Failed to fetch top tracks")
-        console.log(error)
+        return res.status(500).send({ error: error.message })
     }
 });
 
@@ -55,8 +52,7 @@ router.get("/artist/:id/albums", getArtistAlbumsSchema, async (_req, res) => {
         return res.send(response)
 
     } catch (error) {
-        console.log("Failed to fetch albums")
-        console.log(error)
+        return res.status(500).send({ error: error.message })
     }
 });
 

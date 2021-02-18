@@ -1,14 +1,14 @@
 import { isNumber } from "../../../src/utils/isNumber";
+import { BASE_URL } from "../../../src/utils/external_serives";
+import { basename } from "path";
 
 describe('isNumber Utils', () => {
 
     beforeEach(() => {
         jest.clearAllMocks()
     })
-    it('Its a number', () => {
-        [0, 1, 2, -1, 1.345e17, '1'].map((n) => {
-            expect(isNumber(n)).toEqual(true);
-        });
+    it('should match base url', () => {
+        expect(basename).toEqual('https://api.deezer.com');
     });
 
     it('Its not a number', () => {

@@ -5,14 +5,9 @@
   "main": "index.js",
   "scripts": {
     "start": "node build/index.js",
-    "predev": "npm run swagger",
-    "prebuild": "npm run swagger",
     "build": "tsc",
-    "dev_old": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
     "dev": "nodemon ./src/index.ts",
-    "swagger": "tsoa spec",
-    "test": "jest --watchAll",
-    "test-simple": "jest --forceExit --detectOpenHandles  --watchAll --maxWorkers=1"
+    "test": "jest --watchAll"
   },
   "nodemonConfig": {
     "watch": [
