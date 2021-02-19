@@ -1,5 +1,5 @@
 # Express api 
-This is a simple NodeJs API that is used to be an interface of a React app to make external requests to the [Deezer API](https://developers.deezer.com/api "Deezer api"). This API exposes certain endpoints that can be used to search for artists, get artist details, artists top tracks and artists albums.
+This is a simple NodeJs API that is used to be an interface of a [React app](https://github.com/brungo1995/deezer-app "React app") to make external requests to the [Deezer API](https://developers.deezer.com/api "Deezer api"). This API exposes certain endpoints that can be used to search for artists, get artist details, artists top tracks and artists albums.
 
 ## Prerequisites
  * Node Js installed at least version 10
